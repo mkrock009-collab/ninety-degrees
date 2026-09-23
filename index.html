@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ninety Degrees ―― 九十度の二連作</title>
+<meta name="description" content="天国と地獄＝方向性、愛とエロス。二つの三部作が描く、90度の回転による創造。">
+<meta property="og:title" content="Ninety Degrees ―― 九十度の二連作">
+<meta property="og:description" content="天国と地獄＝方向性、愛とエロス。二つの三部作が描く、90度の回転による創造。">
+<meta property="og:image" content="images/og.png">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --gold:#d9a441;
+    --silver:#9aa3ab;
+    --rose:#e8b4b4;
+    --ink:#e8e6e1;
+    --dim:#8a8b8d;
+    --line:rgba(255,255,255,.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:#050506;
+    color:var(--ink);
+    font-family:"Yu Mincho","游明朝","Hiragino Mincho ProN",serif;
+    line-height:1.9;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1500px;margin:0 auto;padding:0 28px}
+
+  /* ---------- hero ---------- */
+  header{padding:110px 0 70px;text-align:center}
+  header .kicker{
+    font-size:11px;letter-spacing:.42em;color:var(--dim);
+    text-transform:uppercase;margin-bottom:26px;
+  }
+  header h1{
+    font-size:clamp(26px,3.6vw,46px);font-weight:400;letter-spacing:.06em;
+    line-height:1.5;
+  }
+  header h1 em{font-style:normal;color:var(--gold)}
+  header .sub{
+    margin-top:22px;font-size:14px;color:var(--dim);letter-spacing:.14em;
+  }
+
+  /* ---------- section title ---------- */
+  .section-title{
+    text-align:center;padding:80px 0 50px;
+  }
+  .section-title h2{
+    font-size:clamp(20px,2.8vw,32px);font-weight:400;letter-spacing:.08em;
+  }
+  .section-title h2 em{font-style:normal;color:var(--gold)}
+  .section-title .subtitle{
+    margin-top:14px;font-size:13px;color:var(--dim);letter-spacing:.18em;
+  }
+
+  /* ---------- triptych ---------- */
+  .triptych{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+    margin:0 auto 10px;max-width:1500px;
+  }
+  figure{position:relative;margin:0;background:#000;overflow:hidden}
+  figure img{display:block;width:100%;height:auto}
+  figcaption{
+    padding:18px 18px 24px;
+    border-top:1px solid var(--line);
+  }
+  figcaption .t{
+    font-size:12px;letter-spacing:.26em;margin-bottom:8px;
+  }
+  .heaven figcaption .t{color:var(--gold)}
+  .hell figcaption .t{color:var(--silver)}
+  .done figcaption .t{color:#f3e2b6}
+  .taika figcaption .t{color:var(--silver)}
+  .touka figcaption .t{color:var(--rose)}
+  .souzou figcaption .t{color:#b8d4a8}
+  figcaption .d{font-size:12.5px;color:var(--dim);letter-spacing:.03em;line-height:1.75}
+  .step{
+    position:absolute;top:12px;left:13px;
+    font-size:9.5px;letter-spacing:.22em;color:rgba(255,255,255,.5);
+    font-family:ui-monospace,Menlo,monospace;
+    background:rgba(0,0,0,.5);padding:4px 8px;border:1px solid var(--line);
+  }
+
+  .hint{
+    text-align:center;font-size:12px;color:var(--dim);
+    letter-spacing:.16em;padding:14px 0 60px;
+  }
+
+  /* ---------- divider ---------- */
+  .divider{
+    border:none;border-top:1px solid var(--line);
+    margin:60px auto;max-width:200px;
+  }
+
+  /* ---------- compare table ---------- */
+  section.table-section{padding:70px 0;border-top:1px solid var(--line)}
+  section.table-section h2{
+    font-size:12px;letter-spacing:.4em;color:var(--dim);
+    font-weight:400;text-transform:uppercase;margin-bottom:38px;text-align:center;
+  }
+  table{
+    width:100%;max-width:1000px;margin:0 auto;border-collapse:collapse;
+    font-size:14px;
+  }
+  th,td{padding:15px 16px;border-bottom:1px solid var(--line);text-align:left}
+  thead th{font-weight:400;font-size:12px;letter-spacing:.24em;color:var(--dim)}
+  thead th:nth-child(2){color:var(--silver)}
+  thead th:nth-child(3){color:var(--gold)}
+  thead th:nth-child(4){color:#f3e2b6}
+  tbody th{font-weight:400;color:var(--dim);width:18%;font-size:13.5px}
+  td:nth-child(2){color:#c3c9ce}
+  td:nth-child(3){color:#f0dcae}
+  td:nth-child(4){color:#f6ecd2}
+
+  /* ---------- text ---------- */
+  .tabs{display:flex;justify-content:center;gap:2px;margin-bottom:46px;flex-wrap:wrap}
+  .tabs button{
+    background:transparent;border:1px solid var(--line);color:var(--dim);
+    font-family:inherit;font-size:12.5px;letter-spacing:.2em;
+    padding:11px 26px;cursor:pointer;transition:.25s;
+  }
+  .tabs button:hover{color:var(--ink)}
+  .tabs button[aria-selected="true"]{
+    color:#0b0b0c;background:var(--ink);border-color:var(--ink);
+  }
+  article{max-width:760px;margin:0 auto;font-size:16px}
+  article[hidden]{display:none}
+  article h3{
+    font-size:18px;font-weight:400;letter-spacing:.06em;
+    margin:54px 0 18px;padding-bottom:12px;border-bottom:1px solid var(--line);
+  }
+  article h3:first-child{margin-top:0}
+  article p{margin-bottom:22px;text-align:justify}
+  article strong{color:#fff;font-weight:400;border-bottom:1px solid rgba(217,164,65,.5)}
+  article blockquote{
+    margin:30px 0;padding:18px 26px;border-left:2px solid var(--gold);
+    color:#f0dcae;font-size:16.5px;
+  }
+  article .note{font-size:13.5px;color:var(--dim)}
+
+  footer{
+    padding:70px 0 100px;text-align:center;
+    font-size:11.5px;letter-spacing:.24em;color:#55585c;
+    border-top:1px solid var(--line);
+  }
+
+  @media(max-width:1100px){
+    .triptych{grid-template-columns:1fr}
+    table{font-size:12.5px}
+    th,td{padding:11px 8px}
+  }
+  @media(max-width:880px){
+    header{padding:70px 0 44px}
+    .section-title{padding:60px 0 40px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">Noosology &nbsp;/&nbsp; Ninety Degrees</div>
+    <h1>九十度 ――<br>回転による<em>創造</em></h1>
+    <div class="sub">二つの三部作。自己の変容と、他者との創造。</div>
+  </div>
+</header>
+
+<!-- ============================================================ -->
+<!-- 第一部：天国と地獄 -->
+<!-- ============================================================ -->
+
+<div class="section-title">
+  <h2>第一部<br><em>天国と地獄 ＝ 方向性</em></h2>
+  <div class="subtitle">同じ女性。同じ闇。違うのは、向きだけ。</div>
+</div>
+
+<div class="wrap">
+  <div class="triptych">
+    <figure class="hell">
+      <div class="step">Ⅰ &nbsp;実軸 3本 · R³ · 0/1</div>
+      <img src="images/hell.png" alt="地獄側 ― 全員が真横を向き、等間隔の格子として無限に反復する">
+      <figcaption>
+        <div class="t">幅 ／ 全員が他者</div>
+        <div class="d">背を向けた者が一人もいない。中央まで回転が到達し、前方が消滅する。光は画面外の左右から ―― 照らされるとは、見られること。</div>
+      </figcaption>
+    </figure>
+
+    <figure class="heaven">
+      <div class="step">Ⅱ &nbsp;虚軸 1本 · RP³ ≅ SO(3)</div>
+      <img src="images/heaven.png" alt="天国側 ― 中央の女性が背を向けて自ら発光し、外へ向かうほど身体が回転していく">
+      <figcaption>
+        <div class="t">奥行き ／ 中心だけが戻る</div>
+        <div class="d">背を向けて歩く。光は彼女自身から出ている。外へ行くほど身体が回り、端で細い刻みになって消える ―― 回転に勾配がある。</div>
+      </figcaption>
+    </figure>
+
+    <figure class="done">
+      <div class="step">Ⅲ &nbsp;位置の交換 · 完遂</div>
+      <img src="images/completion.png" alt="完遂 ― 他者が一人もおらず、彼女の輪郭が光に砕けて空間そのものになっている">
+      <figcaption>
+        <div class="t">鏡そのものへ ／ 他者が消える</div>
+        <div class="d">他者が一人もいない。輪郭が光に砕け、どこまでが身体でどこからが空間か言えない。闇は彼女の外側部分であり、上も下もない。</div>
+      </figcaption>
+    </figure>
+  </div>
+  <div class="hint">場所は一度も変わっていない。変わったのは、身体がどちらを向いているかだけである。</div>
+</div>
+
+<hr class="divider">
+
+<!-- ============================================================ -->
+<!-- 第二部：愛とエロス -->
+<!-- ============================================================ -->
+
+<div class="section-title">
+  <h2>第二部<br><em>愛とエロス</em></h2>
+  <div class="subtitle">男と女。向きの食い違いから、世界が開く。</div>
+</div>
+
+<div class="wrap">
+  <div class="triptych">
+    <figure class="taika">
+      <div class="step">Ⅰ &nbsp;対化 · 鏡像</div>
+      <img src="images/taika.png" alt="対化 ― 大理石の男女が向かい合い、水面に映る">
+      <figcaption>
+        <div class="t">対化 ／ 向かい合い</div>
+        <div class="d">大理石のような質感の男女が向かい合い、水面に映る。まだ動きはない。中央の光の線は、これから裂けていく奥行きを予感させる。</div>
+      </figcaption>
+    </figure>
+
+    <figure class="touka">
+      <div class="step">Ⅱ &nbsp;等化 · ヴェシカパイシス</div>
+      <img src="images/touka.png" alt="等化 ― 背中合わせの男女、空にヴェシカパイシスが現れる">
+      <figcaption>
+        <div class="t">等化 ／ 奥行きの裂開</div>
+        <div class="d">背中合わせの男女。男は夜を、女は朝焼けを背負う。空に二つの光の円が交わり、ヴェシカパイシスを形作る ―― 差異から次元が開く。</div>
+      </figcaption>
+    </figure>
+
+    <figure class="souzou">
+      <div class="step">Ⅲ &nbsp;創造 · 着床</div>
+      <img src="images/souzou.png" alt="創造 ― 背中合わせに座る男女、接点から根が地面へ伸びる">
+      <figcaption>
+        <div class="t">創造 ／ 地上への開口</div>
+        <div class="d">背中合わせに座る男女。接点から根が地面へ張る。天空への開口（精神）に対し、地上への開口（生命） ―― エロスの着床。</div>
+      </figcaption>
+    </figure>
+  </div>
+  <div class="hint">愛とは、同じ方向を向くことではない。異なる方向を向きながら、なお一緒にいること。</div>
+</div>
+
+<!-- ============================================================ -->
+<!-- 比較表 -->
+<!-- ============================================================ -->
+
+<section class="table-section">
+  <div class="wrap">
+    <h2>二連作の構造</h2>
+    <table>
+      <thead>
+        <tr><th></th><th>天国と地獄（自己）</th><th>愛とエロス（関係）</th></tr>
+      </thead>
+      <tbody>
+        <tr><th>テーマ</th><td>自己の内なる90度回転</td><td>男女の間の90度の食い違い</td></tr>
+        <tr><th>主体</th><td>一人の女性</td><td>男と女</td></tr>
+        <tr><th>開口方向</th><td>天空（精神・意識）</td><td>天空（等化）＋地上（創造）</td></tr>
+        <tr><th>行程</th><td>幅 → 奥行き → 完遂</td><td>対化 → 等化 → 創造</td></tr>
+        <tr><th>到達点</th><td>空間そのものになる</td><td>根を張り、新しい命を宿す</td></tr>
+        <tr><th>次元</th><td>虚軸・RP³</td><td>エロス・着床・生成</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 解説 -->
+<!-- ============================================================ -->
+
+<section class="table-section">
+  <div class="wrap">
+    <h2>解説</h2>
+    <div class="tabs" role="tablist">
+      <button role="tab" aria-selected="true"  data-t="plain">はじめての方へ</button>
+      <button role="tab" aria-selected="false" data-t="noos">ヌーソロジー的意味付け</button>
+    </div>
+
+    <!-- ============ 一般向け ============ -->
+    <article id="plain">
+      <h3>九十度の回転が世界を変える</h3>
+      <p>この六枚の絵に描かれているのは、ほとんど同じ人たちです。同じ服、同じ姿、同じ暗闘。違うのはたった一つ ―― <strong>どちらを向いているか</strong>だけです。</p>
+      <p>でもその「向き」だけで、世界がまったく別のものに見える。それがこの作品の言いたいことです。</p>
+
+      <h3>第一部：天国と地獄</h3>
+      <p>「天国と地獄」は、どこか遠くの場所だと思われています。良い人は上へ、悪い人は下へ。</p>
+      <p>この作品は、そうではないと言っています。<strong>同じ場所です。</strong>立っている位置も、暗闇も、何ひとつ変わっていない。変わったのは<strong>向きだけ</strong>。</p>
+      <p>横を向いているとき、人は誰かに見られる存在になり、他人と比べられ、番号になります。前を向いているとき、人は自分の光で歩き、どこにも到着しなくてよくなります。</p>
+      <p>地獄は死んだ後に行く場所ではなく、<strong>生きたまま横を向いている、いまのこの状態</strong>のこと。そして天国も、どこか遠くにあるのではありません。<strong>同じ場所で、向きが戻ること。</strong>それだけです。</p>
+
+      <h3>第二部：愛とエロス</h3>
+      <p>愛とは、同じ方向を向くことではありません。<strong>異なる方向を向きながら、なお一緒にいること</strong>です。</p>
+      <p>男は夜空を、女は朝焼けを向いている。二人の向きは90度食い違っています。でもその「食い違い」から、何かが生まれる。</p>
+      <p>空に向かえば精神の次元が開き（ヴェシカパイシス）、地に向かえば生命が着床する（根）。</p>
+      <p>これが「愛とエロス」の能動的な意味です。二人の間で起きる創造の力。向きが違うからこそ、世界が豊かになる。</p>
+
+      <h3>二連作の関係</h3>
+      <p>第一部は<strong>自己の変容</strong>を描き、第二部は<strong>関係性の創造</strong>を描いています。</p>
+      <p>どちらも「90度の回転」が鍵です。向きが変わることで、閉じた世界が開く。一人でそれをやれば「天国」へ、二人でそれをやれば「創造」へ。</p>
+    </article>
+
+    <!-- ============ ヌース的 ============ -->
+    <article id="noos" hidden>
+      <h3>90度回転の二つの相</h3>
+      <p>半田広宣氏のヌーソロジーにおいて、「90度の回転」は中心的なテーマである。視線が前方から左右へ90度回転すると、奥行きは幅へと偽装される。逆に、幅から奥行きへ回転を戻すことが、位置の交換の核心である。</p>
+      <p>本二連作は、この90度回転を二つの文脈で展開する：</p>
+      <p><strong>第一部（天国と地獄）</strong>では、自己の内部での回転を描く。全員が横を向いた状態（地獄・幅・R³）から、中央だけが前を向く状態（天国・奥行き・虚軸）を経て、最終的に空間そのものになる（完遂・位置の交換の完了）。</p>
+      <p><strong>第二部（愛とエロス）</strong>では、自他の間での回転を描く。男女という対化が、互いに90度食い違った方向を向くことで、新しい次元を開く（等化）。そしてその開口が地上に向かうとき、生命が着床する（エロス）。</p>
+
+      <h3>対化と等化</h3>
+      <p>ヌーソロジーにおいて、<strong>対化</strong>とは二極分化であり、自他・前後・男女といった対項の発生である。<strong>等化</strong>とは、その対化を差異として統合することである。</p>
+      <p>第二部のA案（対化）では、男女が向かい合って鏡像になっている。これはまだ等化が起きる前の段階である。B案（等化）では、背中合わせに立ち、互いに逆方向を向くことで、その差異からヴェシカパイシスが現れる。C案（創造）では、その等化が地上に根を張り、新しい生命として着床する。</p>
+
+      <h3>天空への開口と地上への開口</h3>
+      <p>第一部では、90度の回転は<strong>天空＝精神の次元</strong>を開くものとして描かれた。第二部のB案もまた天空への開口を示す（ヴェシカパイシス）。</p>
+      <p>しかし第二部のC案では、同じ90度の回転が<strong>地上＝生成の次元</strong>へと向かう。これがエロスの開口である。精神の覚醒（天国と地獄）と、生命の着床（愛とエロス）は、90度回転の二つの相として対になる。</p>
+
+      <h3>ヴェシカパイシスの意味</h3>
+      <p>ヴェシカパイシス（魚形）は、二つの円が交差することで生まれる形である。古代から「創造の子宮」として象徴されてきた。</p>
+      <p>ヌーソロジー的には、これは<strong>二つの対化が出会い、その差異から新しい次元が生まれる</strong>ことの視覚化である。男と女という二つの円が、90度食い違った方向を向くことで交差し、その中央から奥行きが裂けて開く。</p>
+
+      <h3>サムライの髷</h3>
+      <p>第二部のB案・C案では、男女ともに侍の髷を結っている。これは精神性と覚悟の表現であり、外的な力（武器）ではなく内なる方向性によって立つことを示す。また、ヌーソロジーが日本発祥の思想であることとの呼応でもある。</p>
+
+      <h3>二連作の構造</h3>
+      <p>第一部と第二部は<strong>対構造</strong>を成す。前者が自己の変容（位置の交換）を描き、後者が関係性の創造（等化とエロス）を描く。どちらも90度回転が鍵であり、どちらも「場所の移動」ではなく「向きの変化」として主題を展開する。</p>
+      <p class="note">典拠：CaveSyndrome（半田広宣）ID 2177 / 2232 / 2268 / 2342 / 2408 / 2434 / 2440 / 3722 / 6991</p>
+    </article>
+  </div>
+</section>
+
+<footer>Mark M. &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; Ninety Degrees</footer>
+
+<script>
+  const tabs = document.querySelectorAll('.tabs button');
+  tabs.forEach(b=>b.addEventListener('click',()=>{
+    tabs.forEach(x=>x.setAttribute('aria-selected', x===b));
+    document.getElementById('plain').hidden = b.dataset.t!=='plain';
+    document.getElementById('noos').hidden  = b.dataset.t!=='noos';
+  }));
+</script>
+</body>
+</html>
